@@ -8,13 +8,23 @@
       <th>Body</th>
     </thead>
     <tbody>
+      @if(comments.isLoading()) {
+        <tr>
+          <td colspan="4">Loading...</td>
+        </tr>
+      }
+      @if(comments.error()) {
+        <tr>
+          <td colspan="4">Something went wrong</td>
+        </tr>
+      }
       @for(item of comments.value(); track $index) {
-      <tr>
-        <td>{{ item.id }}</td>
-        <td>{{ item.name | slice: 0: 20 }}</td>
-        <td class="normal">{{ item.email }}</td>
-        <td>{{ item.body | slice: 0: 50 }}</td>
-      </tr>
+        <tr>
+          <td>{{ item.id }}</td>
+          <td>{{ item.name | slice: 0: 20 }}</td>
+          <td class="normal">{{ item.email }}</td>
+          <td>{{ item.body | slice: 0: 50 }}</td>
+        </tr>
       }
     </tbody>
   </table>

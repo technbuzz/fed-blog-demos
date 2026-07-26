@@ -2,22 +2,31 @@
   <section class="content">
   <table>
     <thead>
-      <th>Post ID</th>
+      <th (click)="sortBy('postId')">
+        <span>Post ID</span>
+        @if(sort() === 'postId') {
+          @if(order() === 'asc') {
+            <span>↑</span>
+          } @else {
+            <span>↓</span>
+          }
+        }
+      </th>
       <th>Name</th>
-      <th>Email</th>
+      <th (click)="sortBy('email')">
+        <span>Email</span>
+        @if(sort() === 'email') {
+          @if(order() === 'asc') {
+            <span>↑</span>
+          } @else {
+            <span>↓</span>
+          }
+        }
+
+      </th>
       <th>Body</th>
     </thead>
     <tbody>
-      @if(comments.isLoading()) {
-        <tr>
-          <td colspan="4">Loading...</td>
-        </tr>
-      }
-      @if(comments.error()) {
-        <tr>
-          <td colspan="4">Something went wrong</td>
-        </tr>
-      }
       @for(item of comments.value(); track $index) {
         <tr>
           <td>{{ item.id }}</td>

@@ -38,7 +38,7 @@ export class App {
   sort = signal('');
   order = signal('asc');
 
-  comments = httpResource<Comment[]>(() => ({
+  commentsRes = httpResource<Comment[]>(() => ({
       url: 'https://jsonplaceholder.typicode.com/comments',
       params: {
         _limit: 10,
@@ -48,7 +48,7 @@ export class App {
     }), {defaultValue: []},
   );
 
-  // comments = withPreviousValue(this.commentsRes);
+  comments = withPreviousValue(this.commentsRes);
 
   sortBy(field: string) {
     if(this.sort() === field) {

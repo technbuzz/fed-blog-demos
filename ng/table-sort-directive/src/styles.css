@@ -11,3 +11,7 @@ body {
   background-color: light-dark(#fff, #101828);
   transition: background-color 0.2s ease-in-out;
 }
+
+th[sort-header] {
+  cursor: pointer;
+}

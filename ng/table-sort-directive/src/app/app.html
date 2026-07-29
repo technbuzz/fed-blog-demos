@@ -1,29 +1,10 @@
 <main class="main">
   <section class="content">
   <table>
-    <thead>
-      <th (click)="sortBy('postId')">
-        <span>Post ID</span>
-        @if(sort() === 'postId') {
-          @if(order() === 'asc') {
-            <span>↑</span>
-          } @else {
-            <span>↓</span>
-          }
-        }
-      </th>
+    <thead tnb-sort (sortChange)="updateSort($event)">
+      <th sort-header="post-id">Post ID </th>
       <th>Name</th>
-      <th (click)="sortBy('email')">
-        <span>Email</span>
-        @if(sort() === 'email') {
-          @if(order() === 'asc') {
-            <span>↑</span>
-          } @else {
-            <span>↓</span>
-          }
-        }
-
-      </th>
+      <th sort-header="email"> Email </th>
       <th>Body</th>
     </thead>
     <tbody>

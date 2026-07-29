@@ -1,0 +1,8 @@
+<ng-content />
+@if(amSorted()) {
+  @if(_sort?.direction() === 'asc') {
+    <span>↑</span>
+  } @else {
+    <span>↓</span>
+  }
+}

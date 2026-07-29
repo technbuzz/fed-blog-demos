@@ -2,6 +2,8 @@ import { SlicePipe } from '@angular/common';
 import { httpResource } from '@angular/common/http';
 import { Component, effect, linkedSignal, Resource, resourceFromSnapshots, ResourceSnapshot, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { SortHeader } from './sort-header';
+import { TNBSort } from './sort';
 
 type Comment = {
   postId: number;
@@ -28,7 +30,7 @@ function withPreviousValue<T>(input: Resource<T>):Resource<T> {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, SlicePipe],
+  imports: [RouterOutlet, SlicePipe, SortHeader, TNBSort],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -37,6 +39,11 @@ export class App {
 
   sort = signal('');
   order = signal('asc');
+
+  updateSort(event: { active: string; direction: string}) {
+    this.sort.set(event.active);
+    this.order.set(event.direction);
+  }
 
   commentsRes = httpResource<Comment[]>(() => ({
       url: 'https://jsonplaceholder.typicode.com/comments',

@@ -1,0 +1,46 @@
+<main class="main">
+  <section class="content">
+  <table>
+    <thead>
+      <th (click)="sortBy('postId')">
+        <span>Post ID</span>
+        @if(sort() === 'postId') {
+          @if(order() === 'asc') {
+            <span>↑</span>
+          } @else {
+            <span>↓</span>
+          }
+        }
+      </th>
+      <th>Name</th>
+      <th (click)="sortBy('email')">
+        <span>Email</span>
+        @if(sort() === 'email') {
+          @if(order() === 'asc') {
+            <span>↑</span>
+          } @else {
+            <span>↓</span>
+          }
+        }
+
+      </th>
+      <th>Body</th>
+    </thead>
+    <tbody>
+      @for(item of comments.value(); track $index) {
+        <tr>
+          <td>{{ item.id }}</td>
+          <td>{{ item.name | slice: 0: 20 }}</td>
+          <td class="normal">{{ item.email }}</td>
+          <td>{{ item.body | slice: 0: 50 }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  </section>
+
+
+</main>
+
+<router-outlet />

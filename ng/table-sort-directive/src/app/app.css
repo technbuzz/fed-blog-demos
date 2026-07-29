@@ -1,0 +1,72 @@
+  main {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    box-sizing: inherit;
+    position: relative;
+
+    @media screen and (min-width: 650px) {
+      padding: 1rem;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+
+  table {
+    border-collapse: collapse;
+  }
+
+
+  thead {
+    border-bottom: 1px solid #d1d5dc;
+    border-color: light-dark(#d1d5dc, #ffffff26);
+  }
+
+  th {
+    text-align: left;
+    color: light-dark(#101828, #fff);
+    padding: 0.875rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+
+    &:first-child {
+      padding-inline-start: 0;
+    }
+  }
+
+  tbody tr {
+    border-bottom: 1px solid #ebe6e7;
+    border-color: light-dark(#ebe6e7, #ffffff1a);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  td {
+    color: light-dark(#101828, #99a1af);
+    /* font-weight: 300; */
+    padding-inline: 0.5rem;
+    padding-block: 0.75rem;
+    font-size: 14px;
+
+    &:first-child {
+      padding-inline-start: 0;
+    }
+  }
+
+
+  td.normal {
+    color: light-dark(#101828, #fff);
+    /* font-weight: 400; */
+  }
+
+
+/* TODO: Exactly two childrens */
+th:has(span:nth-child(-n + 2)) {
+  display: flex;
+  gap: 0.5rem;
+  cursor: pointer;
+}

@@ -2,17 +2,17 @@ import { Component, computed, effect, inject, input, signal } from '@angular/cor
 import { TNBSort } from './sort';
 
 @Component({
-  selector: '[sort-header]',
-  templateUrl: 'sort-header.html',
+  selector: '[tnb-sort-header]',
+  templateUrl: 'tnb-sort-header.html',
   host: {
     '(click)': '_toggleSort()',
   }
 })
 
-export class SortHeader {
+export class TNBSortHeader {
 
   key = input('', {
-    alias: 'sort-header'
+    alias: 'tnb-sort-header'
   });
 
   initOrder = input<'asc' | 'desc'>();

@@ -2,7 +2,7 @@ import { SlicePipe } from '@angular/common';
 import { httpResource } from '@angular/common/http';
 import { Component, effect, linkedSignal, Resource, resourceFromSnapshots, ResourceSnapshot, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SortHeader } from './sort-header';
+import { TNBSortHeader } from './tnb-sort-header';
 import { TNBSort } from './sort';
 
 type Comment = {
@@ -30,7 +30,7 @@ function withPreviousValue<T>(input: Resource<T>):Resource<T> {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, SlicePipe, SortHeader, TNBSort],
+  imports: [RouterOutlet, SlicePipe, TNBSortHeader, TNBSort],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
